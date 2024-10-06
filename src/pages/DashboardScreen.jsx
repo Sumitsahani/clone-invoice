@@ -42,7 +42,7 @@ function DashboardScreen() {
   return (
     <div>
     
-      <div className="p-4">
+      <div className="">
       <nav className="bg-white-800 text-black p-4 flex justify-between items-center">
       {/* Logo */}
       <div className="flex items-center">

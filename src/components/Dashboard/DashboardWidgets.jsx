@@ -23,8 +23,8 @@ function DashboardWidgets() {
     <>
       <div className="flex flex-wrap">
         <div className="w-full mb-3 md:w-1/2">
-          <div className="p-4 bg-white rounded-xl md:mr-4 hover:shadow-sm">
-            <div className="font-title">Total Balance</div>
+        <div className="p-4 bg-gray-50 rounded-md  md:mr-4 hover:shadow-md">            
+          <div className="font-title">Total Balance</div>
             <div className="flex justify-between items-center">
               {/* Icon */}
               <div className="h-30">
@@ -44,7 +44,7 @@ function DashboardWidgets() {
           </div>
         </div>
         <div className="w-full mb-3 md:w-1/2">
-          <div className="p-4 bg-white rounded-xl hover:shadow-sm">
+          <div className="p-4 bg-gray-50 rounded-md  hover:shadow-md">
             <div className="font-title">Total Products</div>
             <div className="flex justify-between items-center">
               {/* Icon */}
@@ -65,7 +65,7 @@ function DashboardWidgets() {
           </div>
         </div>
         <div className="w-full mb-3 md:w-1/2">
-          <div className="p-4 bg-white rounded-xl md:mr-4 hover:shadow-sm">
+          <div className="p-4 bg-gray-50 rounded-md  md:mr-4 hover:shadow-md">
             <div className="font-title">Total Invoices</div>
             <div className="flex justify-between items-center">
               {/* Icon */}
@@ -86,7 +86,7 @@ function DashboardWidgets() {
           </div>
         </div>
         <div className="w-full mb-3 md:w-1/2">
-          <div className="p-4 bg-white rounded-xl hover:shadow-sm">
+          <div className="p-4 bg-gray-50 rounded-md hover:shadow-md">
             <div className="font-title">Total Clients</div>
             <div className="flex justify-between items-center">
               {/* Icon */}

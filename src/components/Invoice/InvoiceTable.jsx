@@ -136,9 +136,9 @@ function InvoiceTable({ showAdvanceSearch = false }) {
         </div>
       )}
 
-      <div className="sm:bg-white rounded-xl sm:px-3 sm:py-3">
-        <div className="hidden sm:flex invisible sm:visible w-full flex-col sm:flex-row">
-          <div className="sm:text-left text-default-color font-title flex-1">
+      <div className="sm:bg-gray-50 rounded-xl sm:px-3 sm:py-3 ">
+        <div className="hidden sm:flex invisible sm:visible w-full flex-col sm:flex-row ">
+          <div className="sm:text-left text-default-color font-title flex-1 hover:shadow-md bg-gray-50">
             Invoice Name
           </div>
           <div className="sm:text-left text-default-color font-title flex-1">
