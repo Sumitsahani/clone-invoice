@@ -33,7 +33,7 @@ const InvoiceMain= () => {
     <BrowserRouter>
       <Container>
         <Routes>
-          <Route path="/" element={<DashboardScreen />} />
+          <Route path="/dashboard" element={<DashboardScreen />} />
 
           <Route path="clients" element={<ClientListScreen />}></Route>
 

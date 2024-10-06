@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import { AppContextProvider } from "./context/AppContext";
 import InvoiceMain from "./InvoiceMain";
 import LandingMain from "../src/LandingPage/LandingMain"
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,7 +22,8 @@ root.render(
     <AppContextProvider>
       <Provider store={store}>
         {/* <InvoiceMain/> */}
-        <LandingMain/>
+        {/* <LandingMain/> */}
+        <App/>
       </Provider>
     </AppContextProvider>
   </React.StrictMode>

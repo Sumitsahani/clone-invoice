@@ -16,7 +16,7 @@ import Skeleton from "react-loading-skeleton";
 const NAV_DATA = [
   {
     title: "Dashboard",
-    link: "/",
+    link: "/dashboard",
     Icon: HomeIcon,
   },
   {

@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Turn as Hamburger } from 'hamburger-react';  // Import Hamburger from the package
 import { logo } from "../Landingassets";  // Assuming you have a logo in your assets
 import { navLinks } from "../Landingconstants";
+// 
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [isOpen, setOpen] = useState(false); // State for toggling hamburger
+  // const navigate = useNavigate();  // Initialize navigate
 
   return (
     <nav className="w-full flex py-2 justify-between items-center navbar bg-white">
@@ -20,9 +22,13 @@ const Navbar = () => {
             className={`font-poppins font-normal cursor-pointer text-[16px] ${
               active === nav.title ? "text-[#0066FF]" : "text-black"
             } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
-            onClick={() => setActive(nav.title)}
+            onClick={() => {
+              setActive(nav.title);
+              // navigate(nav.path);  // Navigate to the corresponding route
+              window.location.href=nav.path
+            }}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            {nav.title}
           </li>
         ))}
       </ul>
@@ -48,9 +54,12 @@ const Navbar = () => {
                 onClick={() => {
                   setActive(nav.title);
                   setOpen(false); // Close the sidebar after clicking a link
+                  // navigate(nav.path);  // Navigate to the corresponding route
+                  window.location.href=nav.path
+
                 }}
               >
-                <a href={`#${nav.id}`}>{nav.title}</a>
+                {nav.title}
               </li>
             ))}
           </ul>
