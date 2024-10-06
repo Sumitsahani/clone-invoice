@@ -26,6 +26,7 @@ import InvoiceSettingModal from "./components/Invoice/InvoiceSettingModal";
 import InvoiceConfirmModal from "./components/Invoice/InvoiceConfirmModal";
 import InvoiceDeleteConfirm from "./components/Invoice/InvoiceDeleteConfirm";
 import PageLoading from "./components/Common/PageLoading";
+import TeamPage from './LandingPage/Landingcomponents/ContactUs';
 
 
 const App = () => {
@@ -63,6 +64,8 @@ const App = () => {
       
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/contact" element={<TeamPage />} />
+
     </Routes>
     <ToastContainer />
       <ClientDeleteConfirm />

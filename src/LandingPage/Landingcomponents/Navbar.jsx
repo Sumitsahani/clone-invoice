@@ -9,13 +9,18 @@ const Navbar = () => {
   const [isOpen, setOpen] = useState(false); // State for toggling hamburger
   // const navigate = useNavigate();  // Initialize navigate
 
+   const handleLogo=(e)=>{
+        e.preventDefault()
+        window.location.href="/"
+    }
+
   return (
-    <nav className="w-full flex py-2 justify-between items-center navbar bg-white">
+    <nav className="max-w-6xl flex py-2 justify-between items-center navbar bg-white">
       {/* Logo */}
-      <img src={logo} alt="hoobank" className="w-[124px] h-[90px]" />
+      <img src={logo} alt="hoobank" className="w-[124px] h-[90px] cursor-pointer" onClick={handleLogo}/>
 
       {/* Desktop Navigation */}
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+      <ul className="list-none sm:flex hidden justify-end items-center flex-1 ">
         {navLinks.map((nav, index) => (
           <li
             key={nav.id}

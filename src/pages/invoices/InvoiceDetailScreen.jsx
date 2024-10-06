@@ -11,7 +11,7 @@ import { useReactToPrint } from "react-to-print";
 import { useDispatch, useSelector } from "react-redux";
 // import NumericFormat from "react-number-format";
 import { NumericFormat } from 'react-number-format';
-
+import {logo} from "../../LandingPage/Landingassets"
 import { toast } from "react-toastify";
 import domtoimage from "dom-to-image";
 import InvoiceTopBar from "../../components/Invoice/InvoiceTopBar";
@@ -96,6 +96,36 @@ function InvoiceDetailScreen(props) {
     statusName: "Draft",
     statusIndex: 1,
   });
+
+
+  //Navbar
+  const handleLogo=(e)=>{
+    e.preventDefault()
+    window.location.href="/"
+}
+
+const handleBack=(e)=>{
+   e.preventDefault()
+    window.location.href="/dashboard"
+}
+
+const capitalizeUsername = (username) => {
+  if (!username) return ""; // Handle case where username is empty or undefined
+  return username.charAt(0).toUpperCase() + username.slice(1);
+};
+
+
+const username = localStorage.getItem('username'); // Assuming username is stored in localStorage
+console.log(username)
+const handleLogout = () => {
+  // Clear user session (localStorage or any other auth token)
+  
+  localStorage.removeItem('isAuthenticated');
+  
+  localStorage.removeItem('username');
+  navigate('/login'); // Redirect to login after logout
+};
+
 
   const handleExport = useCallback(() => {
     if (showNavbar) {
@@ -613,6 +643,37 @@ function InvoiceDetailScreen(props) {
 
   return (
     <div>
+      <nav className="bg-white-800 text-black p-4 flex justify-between items-center">
+      {/* Logo */}
+      <div className="flex items-center">
+        <img
+          src={logo}
+          alt="logo"
+          className="w-full h-[90px] cursor-pointer"
+          onClick={handleLogo}
+        />
+      </div>
+
+      {/* User Info and Logout */}
+      <div className="flex items-center space-x-4">
+        {/* Username */}
+        <span className="text-black font-semibold text-lg">Welcome, {capitalizeUsername(username)}</span>
+
+        {/* Logout Button */}
+        <button
+          className="bg-blue-500  text-white font-bold py-2 px-4 rounded"
+          onClick={handleBack}
+        >
+          Back
+        </button>
+        <button
+          className="bg-red-500  text-white font-bold py-2 px-4 rounded"
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
+      </div>
+    </nav>
       <div className="p-4">
         <PageTitle
           title={
@@ -1371,35 +1432,32 @@ function InvoiceDetailScreen(props) {
       {invoiceForm && invoiceForm?.statusIndex !== "3" && (
         <div className="px-4 pt-3">
           <div className="bg-white rounded-xl px-3 py-3">
-            <div className="flex flex-col flex-wrap sm:flex-row">
-              {params.id === "new" && (
-                <div className="w-full flex-1 my-1 sm:my-1 md:my-0 px-1">
-                  <Button
-                    outlined={1}
-                    size="sm"
-                    block={1}
-                    secondary={1}
-                    onClick={() => saveAs("Draft")}
-                  >
-                    <CheckCircleIcon className="h-5 w-5 mr-1" /> Save As Draft
-                  </Button>
-                </div>
-              )}
-              {invoiceForm?.statusIndex !== "2" && (
-                <div className="w-full flex-1 my-1 sm:my-1 md:my-0 px-1">
-                  <Button
-                    outlined={1}
-                    size="sm"
-                    block={1}
-                    danger={1}
-                    onClick={() => saveAs("Unpaid")}
-                  >
-                    <DollarIcon className="h-5 w-5 mr-1" />{" "}
-                    {params.id === "new" ? "Save" : "Update"} As Unpaid
-                  </Button>
-                </div>
-              )}
-              <div className="w-full flex-1 my-1 sm:my-1 md:my-0 px-1">
+            <div className="flex flex-col flex-wrap sm:flex-row ">
+              
+              
+              <div className="w-full flex-1 my-1 sm:my-1 md:my-0 px-1 ">
+                <Button
+                  size="sm"
+                  block={1}
+                  secondary={1}
+                  onClick={() => saveAs("Draft")}
+                >
+                  <SecurityIcon className="h-5 w-5 mr-1" />{" "}
+                  {params.id === "new" ? "Save" : "Update"} As Draft
+                </Button>
+              </div>
+              <div className="w-full flex-1 my-1 sm:my-1 md:my-0 px-1 ">
+                <Button
+                  size="sm"
+                  block={1}
+                  danger={1}
+                  onClick={() => saveAs("Unpaid")}
+                >
+                  <SecurityIcon className="h-5 w-5 mr-1" />{" "}
+                  {params.id === "new" ? "Save" : "Update"} As Unpaid
+                </Button>
+              </div>
+              <div className="w-full flex-1 my-1 sm:my-1 md:my-0 px-1 ">
                 <Button
                   size="sm"
                   block={1}

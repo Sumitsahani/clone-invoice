@@ -17,12 +17,19 @@ export const Login = () => {
     e.preventDefault();
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
+      // Save login status and user name (or email) to localStorage
+      localStorage.setItem("isAuthenticated", "true");
+      
+      localStorage.setItem("username", user.displayName || user.email.split("@")[0]);
+      
+      
       toast.success("User Logged in Successfully", {
         position: "top-center",
       });
-      window.location.href = "/dashboaard";
+      window.location.href = "/dashboard";
     } catch (error) {
       console.log(error.message);
       toast.error(error.message, {
@@ -68,11 +75,7 @@ export const Login = () => {
                 />
                 {/* <span class="material-symbols-outlined" id="eye-icon">visibility_off</span> */}
               </div>
-              {/* <div className="form-link">
-                <a href="#" className="forgot-pass">
-                  Forgot Password
-                </a>
-              </div> */}
+             
               <div className="field button-field">
                 <button type="submit">Login</button>
               </div>
